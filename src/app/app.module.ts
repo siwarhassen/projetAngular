@@ -4,13 +4,23 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { HomeComponent } from './home/home.component';
+import { ProduitsComponent } from './produits/produits.component';
+import { DetailproduitComponent } from './detailproduit/detailproduit.component';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
+    HomeComponent,
+    ProduitsComponent,
+    DetailproduitComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
