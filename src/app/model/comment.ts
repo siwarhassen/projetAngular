@@ -1,10 +1,11 @@
 import {Produit} from './produit';
 import {User} from './user';
 
-export interface Comment
+export class Comment
 {
   id: number;
   contenu: string;
-  produitId: Produit;
+  date: string;
+  produitId: number;
   userId: User;
 }

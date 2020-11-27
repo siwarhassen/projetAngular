@@ -1,10 +1,10 @@
 import {User} from './user';
 import {Objets} from './objets';
 
-export interface Produit
+export class Produit
 {
   id: number;
-  objets: Objets;
+  objets: string;
   description: string;
   genre: string;
   etat: string;

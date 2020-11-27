@@ -1,5 +1,5 @@
 export interface Objets
 {
   id: number;
-  name: number;
+  name: string;
 }

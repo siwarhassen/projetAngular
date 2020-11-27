@@ -15,7 +15,15 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { CommentairesComponent } from './commentaires/commentaires.component';
 import { AjoutproduitComponent } from './ajoutproduit/ajoutproduit.component';
+import { StorageServiceModule } from 'ngx-webstorage-service';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { DatePipe } from '@angular/common';
+import { PanierComponent } from './panier/panier.component';
+import { TotalprixpanierComponent } from './totalprixpanier/totalprixpanier.component';
+import { UserproduitsComponent } from './userproduits/userproduits.component';
+
 @NgModule({
+
   declarations: [
     AppComponent,
 
@@ -26,16 +34,21 @@ import { AjoutproduitComponent } from './ajoutproduit/ajoutproduit.component';
     RegistrationComponent,
     LoginComponent,
     CommentairesComponent,
-    AjoutproduitComponent
+    AjoutproduitComponent,
+    PanierComponent,
+    TotalprixpanierComponent,
+    UserproduitsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    StorageServiceModule,
     FormsModule,
+    NgxPaginationModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
