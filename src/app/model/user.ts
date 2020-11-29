@@ -9,5 +9,6 @@ export class User
   ville: string;
   codepostal: number;
   password: string;
+  photo: string;
 
 }

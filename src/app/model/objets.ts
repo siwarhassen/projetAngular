@@ -1,4 +1,4 @@
-export interface Objets
+export class Objets
 {
   id: number;
   name: string;

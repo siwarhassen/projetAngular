@@ -1,5 +1,3 @@
-import {User} from './user';
-import {Objets} from './objets';
 
 export class Produit
 {
@@ -11,7 +9,7 @@ export class Produit
   couleur: string;
   prix: number;
   photo: string;
-  userId: User;
+  userId: number;
 
 
 

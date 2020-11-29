@@ -21,12 +21,18 @@ import { DatePipe } from '@angular/common';
 import { PanierComponent } from './panier/panier.component';
 import { TotalprixpanierComponent } from './totalprixpanier/totalprixpanier.component';
 import { UserproduitsComponent } from './userproduits/userproduits.component';
-
+import { ModifierproduitComponent } from './modifierproduit/modifierproduit.component';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+import {ClipboardModule} from '@angular/cdk/clipboard';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ShareButtonModule } from '@ngx-share/button';
+import {produitsFilterPipe} from './produits/produitsfiltrer.pipe';
 @NgModule({
 
   declarations: [
     AppComponent,
-
+    produitsFilterPipe,
     HomeComponent,
     ProduitsComponent,
     DetailproduitComponent,
@@ -37,7 +43,8 @@ import { UserproduitsComponent } from './userproduits/userproduits.component';
     AjoutproduitComponent,
     PanierComponent,
     TotalprixpanierComponent,
-    UserproduitsComponent
+    UserproduitsComponent,
+    ModifierproduitComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,13 @@ import { UserproduitsComponent } from './userproduits/userproduits.component';
     StorageServiceModule,
     FormsModule,
     NgxPaginationModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule,
+    ShareIconsModule,
+    ShareButtonModule,
+    ShareButtonsModule.withConfig({
+      debug: true
+    })
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
