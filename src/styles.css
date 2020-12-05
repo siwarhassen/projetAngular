@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import '~ngx-toastr/toastr';
+.toast-top-right {
+  top: 100px;
+  right: 200px;
+}
+
+@media (max-width: 575.98px) {
+  .toast-top-right {
+    top: unset;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+  }
+  .toast-container.toast-top-right .toast {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

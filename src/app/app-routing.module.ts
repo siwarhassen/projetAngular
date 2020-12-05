@@ -10,19 +10,26 @@ import {AjoutproduitComponent} from './ajoutproduit/ajoutproduit.component';
 import {PanierComponent} from './panier/panier.component';
 import {UserproduitsComponent} from './userproduits/userproduits.component';
 import {ModifierproduitComponent} from './modifierproduit/modifierproduit.component';
+import {ProduitsselonobjetComponent} from './produitsselonobjet/produitsselonobjet.component';
+import {ModifieruserComponent} from './modifieruser/modifieruser.component';
+import {ProduitsparmarqueComponent} from './produitsparmarque/produitsparmarque.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'produits/:category', component: ProduitsComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'produits/:type/detailproduit/:id', component: DetailproduitComponent},
+  {path: 'detailproduit/:id', component: DetailproduitComponent},
   {path: 'ajoutproduit', component: AjoutproduitComponent},
   {path: 'panier', component: PanierComponent},
   {path: 'produitdeuser', component: UserproduitsComponent},
-  {path: 'produitdeuser/updateproduit/:id', component: ModifierproduitComponent}
+  {path: 'produitdeuser/updateproduit/:id', component: ModifierproduitComponent},
+  {path: 'produitsselonobjet/:objet', component: ProduitsselonobjetComponent},
+  {path: 'produitsselonmarque/:marque', component: ProduitsparmarqueComponent},
+  {path: 'modifieruser', component: ModifieruserComponent},
+  { path: '*', redirectTo: 'home' },
 ];
 
 @NgModule({

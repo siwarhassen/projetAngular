@@ -11,20 +11,29 @@ import {Produit} from '../model/produit';
 export class produitsFilterPipe implements PipeTransform
 {
 
-  transform(produits: Produit[], objet: string): Produit[]
+  transform(produits: Produit[], objet: string , couleur: string): Produit[]
   {
 
     let produitsfiltrer: Produit[];
-    if (!objet || ! Produit)
+    if (!couleur || !objet || ! Produit)
     {
       produitsfiltrer = produits;
     }
 
 
-    if (objet)
+    if (objet &&  !couleur)
     {
 // njarab= voitures.filter(voiture=>voiture.boite.indexOf(boite)!==-1 );
       produitsfiltrer = produits.filter(m => m.objets === objet);
+    }
+
+    if (!objet &&  couleur)
+    {
+// njarab= voitures.filter(voiture=>voiture.boite.indexOf(boite)!==-1 );
+      produitsfiltrer = produits.filter(m => m.couleur === couleur);
+    }
+    if (objet && couleur)
+    {produitsfiltrer = produits.filter((p: Produit) => p.objets === objet && (p.couleur === couleur) );
     }
 
 

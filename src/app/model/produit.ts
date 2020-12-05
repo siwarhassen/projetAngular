@@ -10,7 +10,9 @@ export class Produit
   prix: number;
   photo: string;
   userId: number;
-
+  marque: string;
+  size: number;
+  date: string;
 
 
 }

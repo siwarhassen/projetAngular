@@ -28,6 +28,13 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ShareButtonModule } from '@ngx-share/button';
 import {produitsFilterPipe} from './produits/produitsfiltrer.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
+import { ProduitsselonobjetComponent } from './produitsselonobjet/produitsselonobjet.component';
+import { ModifieruserComponent } from './modifieruser/modifieruser.component';
+import { HighlightDirective } from './highlight.directive';
+import { ProduitsparmarqueComponent } from './produitsparmarque/produitsparmarque.component';
 @NgModule({
 
   declarations: [
@@ -44,7 +51,11 @@ import {produitsFilterPipe} from './produits/produitsfiltrer.pipe';
     PanierComponent,
     TotalprixpanierComponent,
     UserproduitsComponent,
-    ModifierproduitComponent
+    ModifierproduitComponent,
+    ProduitsselonobjetComponent,
+    ModifieruserComponent,
+    HighlightDirective,
+    ProduitsparmarqueComponent
   ],
   imports: [
     BrowserModule,
@@ -59,9 +70,12 @@ import {produitsFilterPipe} from './produits/produitsfiltrer.pipe';
     ShareButtonModule,
     ShareButtonsModule.withConfig({
       debug: true
-    })
+    }),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [DatePipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [HighlightDirective]
 })
 export class AppModule { }
