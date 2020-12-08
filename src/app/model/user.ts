@@ -4,7 +4,7 @@ export class User
   firstname: string;
   lastname: string;
   email: string;
-  telephone: number;
+  phone: number;
   adresse: string;
   ville: string;
   codepostal: number;

@@ -122,46 +122,36 @@
               <li class="dropdown user-acc"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" ><i class="icon-user"></i> </a>
                 <ul class="dropdown-menu">
                   <li>
-                    <h6 *ngIf="isUserLoggedIn">HELLO! {{userconnecte.firstname}} {{userconnecte.lastname}}</h6>
+                    <h6 *ngIf="isUserLoggedIn">Bonsoir! {{userconnecte.firstname}} {{userconnecte.lastname}}</h6>
                   </li>
-                  <li><a *ngIf="isUserLoggedIn"  routerLink="/modifieruser">update compte</a></li>
-                  <li><a *ngIf="isUserLoggedIn"  routerLink="/panier">MY CART</a></li>
-                  <li><a *ngIf="isUserLoggedIn" href="#">ACCOUNT INFO</a></li>
+                  <li><a *ngIf="isUserLoggedIn"  routerLink="/modifieruser">modifier compte</a></li>
+                  <li><a *ngIf="isUserLoggedIn"  routerLink="/produitdeuser">mes produits</a></li>
+                 <!-- <li><a *ngIf="isUserLoggedIn"  routerLink="/panier">MY CART</a></li>-->
                   <li><a *ngIf="isUserLoggedIn" href="#" (click)="logout()">LOG OUT</a></li>
                   <li><a *ngIf="!isUserLoggedIn" routerLink="/login">Login</a></li>
                   <li><a *ngIf="!isUserLoggedIn" routerLink="/registration">Registration</a></li>
 
-                  <li><a *ngIf="isUserLoggedIn"  routerLink="/produitdeuser">mes produits</a></li>
 
                 </ul>
               </li>
 
               <!-- USER BASKET -->
-              <li class="dropdown user-basket"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="icon-basket-loaded"></i> </a>
+              <li class="dropdown user-basket" *ngIf="isUserLoggedIn"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="icon-basket-loaded"></i> </a>
                 <ul class="dropdown-menu">
-                  <li>
+                  <li *ngFor="let p of panier">
                     <div class="media-left">
-                      <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="assets/images/cart-img-1.jpg" alt="..."> </a> </div>
+                      <div class="cart-img"> <a [routerLink]="['/detailproduit',p.productId.id]"> <img class="media-object img-responsive" src="{{p.productId.photo}}" alt="..."> </a> </div>
                     </div>
                     <div class="media-body">
-                      <h6 class="media-heading">WOOD CHAIR</h6>
-                      <span class="price">129.00 USD</span> <span class="qty">QTY: 01</span> </div>
+                      <h6 class="media-heading">{{p.productId.marque}}</h6>
+                      <span class="price">{{p.productId.prix}} DT</span> <span class="qty"></span> </div>
                   </li>
-                  <li>
-                    <div class="media-left">
-                      <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="assets/images/cart-img-2.jpg" alt="..."> </a> </div>
-                    </div>
-                    <div class="media-body">
-                      <h6 class="media-heading">WOOD STOOL</h6>
-                      <span class="price">129.00 USD</span> <span class="qty">QTY: 01</span> </div>
-                  </li>
-                  <li>
-                    <h5 class="text-center">SUBTOTAL: 258.00 USD</h5>
-                  </li>
-                  <li class="margin-0">
+
+
+                  <li class="margin-0" >
                     <div class="row">
-                      <div class="col-xs-6"> <a href="shopping-cart.html" class="btn">VIEW CART</a></div>
-                      <div class="col-xs-6 "> <a href="checkout.html" class="btn">CHECK OUT</a></div>
+                      <div class="col-xs-6"> <a routerLink="/panier" class="btn" style="margin-left: 80px">Panier</a></div>
+
                     </div>
                   </li>
                 </ul>

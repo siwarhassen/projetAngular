@@ -11,7 +11,6 @@ export class Produit
   photo: string;
   userId: number;
   marque: string;
-  size: number;
   date: string;
 
 
