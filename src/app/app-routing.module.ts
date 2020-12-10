@@ -13,6 +13,8 @@ import {ModifierproduitComponent} from './modifierproduit/modifierproduit.compon
 import {ProduitsselonobjetComponent} from './produitsselonobjet/produitsselonobjet.component';
 import {ModifieruserComponent} from './modifieruser/modifieruser.component';
 import {ProduitsparmarqueComponent} from './produitsparmarque/produitsparmarque.component';
+import {Favoris} from './model/favoris';
+import {FavorisComponent} from './favoris/favoris.component';
 
 
 const routes: Routes = [
@@ -29,6 +31,7 @@ const routes: Routes = [
   {path: 'produitsselonobjet/:objet', component: ProduitsselonobjetComponent},
   {path: 'produitsselonmarque/:marque', component: ProduitsparmarqueComponent},
   {path: 'modifieruser', component: ModifieruserComponent},
+  {path: 'favoris', component: FavorisComponent},
   { path: '*', redirectTo: 'home' },
 ];
 

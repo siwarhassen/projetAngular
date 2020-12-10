@@ -1,3 +1,4 @@
+import {User} from './user';
 
 export class Produit
 {
@@ -9,7 +10,7 @@ export class Produit
   couleur: string;
   prix: number;
   photo: string;
-  userId: number;
+  user: User;
   marque: string;
   date: string;
 

@@ -1,7 +1,7 @@
 import {Produit} from './produit';
 import {User} from './user';
 
-export class Panier
+export class Favoris
 {
   id: number;
   produit: Produit[];

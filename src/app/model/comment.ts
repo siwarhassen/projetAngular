@@ -1,11 +1,12 @@
 
 import {User} from './user';
+import {Produit} from './produit';
 
 export class Comment
 {
   id: number;
   content: string;
   date: string;
-  produitId: number;
-  userId: User;
+  produit: Produit;
+  user: User;
 }

@@ -126,6 +126,7 @@
                   </li>
                   <li><a *ngIf="isUserLoggedIn"  routerLink="/modifieruser">modifier compte</a></li>
                   <li><a *ngIf="isUserLoggedIn"  routerLink="/produitdeuser">mes produits</a></li>
+                  <li><a *ngIf="isUserLoggedIn"  routerLink="/favoris">mes favoris</a></li>
                  <!-- <li><a *ngIf="isUserLoggedIn"  routerLink="/panier">MY CART</a></li>-->
                   <li><a *ngIf="isUserLoggedIn" href="#" (click)="logout()">LOG OUT</a></li>
                   <li><a *ngIf="!isUserLoggedIn" routerLink="/login">Login</a></li>
@@ -138,13 +139,13 @@
               <!-- USER BASKET -->
               <li class="dropdown user-basket" *ngIf="isUserLoggedIn"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="icon-basket-loaded"></i> </a>
                 <ul class="dropdown-menu">
-                  <li *ngFor="let p of panier">
+                  <li *ngFor="let p of produitsPanier">
                     <div class="media-left">
-                      <div class="cart-img"> <a [routerLink]="['/detailproduit',p.productId.id]"> <img class="media-object img-responsive" src="{{p.productId.photo}}" alt="..."> </a> </div>
+                      <div class="cart-img"> <a [routerLink]="['/detailproduit',p.id]"> <img class="media-object img-responsive" src="{{p.photo}}" alt="..."> </a> </div>
                     </div>
                     <div class="media-body">
-                      <h6 class="media-heading">{{p.productId.marque}}</h6>
-                      <span class="price">{{p.productId.prix}} DT</span> <span class="qty"></span> </div>
+                      <h6 class="media-heading">{{p.marque}}</h6>
+                      <span class="price">{{p.prix}} DT</span> <span class="qty"></span> </div>
                   </li>
 
 

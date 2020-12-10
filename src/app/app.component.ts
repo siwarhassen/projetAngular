@@ -8,6 +8,7 @@ import {MarqueService} from './shared/marque.service';
 import {Marque} from './model/marque';
 import {Panier} from './model/panier';
 import {PanierService} from './shared/panier.service';
+import {Produit} from './model/produit';
 
 @Component({
   selector: 'app-root',
@@ -21,24 +22,27 @@ export class AppComponent  implements OnInit, OnChanges{
   userconnecte: User;
   objets: Objets[];
   marques: Marque[];
-  panier: Panier[];
+  panier: Panier;
+  produitsPanier: Produit[];
   constructor(private panierservice: PanierService, private serviceUser: UserService ,
               private objetsService: ObjetsService, private marqueservice: MarqueService) {
   }
   ngOnInit(): void {
-  this.isUserLoggedIn = JSON.parse(localStorage.getItem('user')).id;
-  this.userconnecte = JSON.parse(localStorage.getItem('user'));
-  this.objetsService.getobjets().subscribe(o =>
+    console.log(JSON.parse(localStorage.getItem('user')).id);
+    this.isUserLoggedIn = JSON.parse(localStorage.getItem('user')).id;
+    this.userconnecte = JSON.parse(localStorage.getItem('user'));
+    this.objetsService.getobjets().subscribe(o =>
   {
     this.objets = o;
+    console.log(o);
   });
-  this.marqueservice.getmarques().subscribe(m =>
+    this.marqueservice.getmarques().subscribe(m =>
   {
     this.marques = m;
   });
-  this.panierservice.afficherpanier(   this.userconnecte .id ).subscribe(p =>
+    this.panierservice.getpanier(   this.userconnecte .id ).subscribe(p =>
     {
-      this.panier = p;
+      this.produitsPanier = p.produit;
     });
   }
 ngOnChanges() {

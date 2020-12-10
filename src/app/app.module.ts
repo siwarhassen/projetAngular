@@ -35,6 +35,7 @@ import { ProduitsselonobjetComponent } from './produitsselonobjet/produitsselono
 import { ModifieruserComponent } from './modifieruser/modifieruser.component';
 import { HighlightDirective } from './highlight.directive';
 import { ProduitsparmarqueComponent } from './produitsparmarque/produitsparmarque.component';
+import { FavorisComponent } from './favoris/favoris.component';
 @NgModule({
 
   declarations: [
@@ -55,7 +56,8 @@ import { ProduitsparmarqueComponent } from './produitsparmarque/produitsparmarqu
     ProduitsselonobjetComponent,
     ModifieruserComponent,
     HighlightDirective,
-    ProduitsparmarqueComponent
+    ProduitsparmarqueComponent,
+    FavorisComponent
   ],
   imports: [
     BrowserModule,
