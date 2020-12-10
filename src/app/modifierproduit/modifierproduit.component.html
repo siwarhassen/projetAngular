@@ -1,0 +1,189 @@
+
+
+
+<!--======= SUB BANNER =========-->
+<section class="sub-bnr" data-stellar-background-ratio="0.5" style="background: url(assets/images/vendre.jpg) no-repeat;">
+  <div class="position-center-center">
+    <div class="container">
+      <h4>Modifier votre produit</h4>
+
+      <ol class="breadcrumb">
+        <li><a routerLink="/home">Accueil</a></li>
+        <li class="active"><a>Mes produits</a></li>
+        <li class="active"><a>modifier</a></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- Content -->
+<div id="content">
+
+  <!--======= PAGES INNER =========-->
+  <section class="chart-page padding-top-100 padding-bottom-100" style="margin-left: 300px">
+    <div class="container">
+
+      <!-- Payments Steps -->
+      <div class="shopping-cart">
+
+        <!-- SHOPPING INFORMATION -->
+        <div class="cart-ship-info">
+          <div class="row">
+
+            <!-- ESTIMATE SHIPPING & TAX -->
+            <div class="col-sm-7">
+              <h6>update A VENDRE</h6>
+              <form   [formGroup]="produitForm">
+                <ul class="row">
+
+                  <!-- Name -->
+
+                  <li class="col-md-6">
+                    <label>*PRIX
+                      <input type="number" name="postal-code" value="" placeholder="" style="height: 30px;border-color: #999999"  formControlName="prix" [ngStyle]="{'border-color':prix.errors && prix.touched?'red':'#ebebeb'}">
+                      <span  *ngIf="prix.hasError('required') && prix.touched" style="margin-left: 130px;color: red">
+
+                          Le prix est obligatoire
+                        </span>
+                      <span  *ngIf="prix.hasError('min') && prix.touched" style="margin-left: 100px;color: red">
+
+                          Le prix doit etre > 10 DT
+                        </span>
+                      <span  *ngIf="prix.hasError('max') && prix.touched" style="margin-left: 100px;color: red">
+
+                          Le prix doit etre < 9000 DT
+                        </span>
+                    </label>
+                  </li>
+
+                  <!-- LAST NAME -->
+                  <li class="col-md-6" >
+                    <label> *OBJET
+                      <select class="selectpicker"  formControlName="objets" >
+
+                        <option value="">Choix</option>
+                        <option  *ngFor="let o of listeobjets" value="{{o.name}}">{{o.name}}</option>
+                      </select>
+                      <span *ngIf="produitForm.get('objets').hasError('required') " style="color: red;margin-left: 80px">
+
+                        ce champ est obligatoire
+                    </span>
+                    </label>
+
+                  </li>
+                  <li class="col-md-6">
+                    <!-- COMPANY NAME -->
+                    <label>*GENRE
+                      <select class="selectpicker"   formControlName="genre"  >
+                        <option value="">Choix</option>
+                        <option value="hommes">Homme</option>
+                        <option value="femmes">femme</option>
+                        <option value="enfant">enfant</option>
+
+
+                      </select>
+                      <span *ngIf="produitForm.get('genre').hasError('required') " style="color: red;margin-left: 80px">
+
+                        ce champ est obligatoire
+                    </span>
+                    </label>
+                  </li>
+
+                  <li class="col-md-6">
+                    <!-- ADDRESS -->
+                    <label>*ETAT
+                      <select class="selectpicker"   formControlName="etat">
+                        <option value="">Choix</option>
+                        <option value="Neuf Avec étiquette">Neuf Avec étiquette</option>
+                        <option value="Neuf Sans étiquette">Neuf Sans étiquette</option>
+                        <option value="Trés bon état">Trés bon état</option>
+                        <option value="Bon état">Bon état</option>
+                        <option value="Satisfaisant">Satisfaisant</option>
+                      </select>
+                      <span *ngIf="produitForm.get('etat').hasError('required') " style="color: red;margin-left: 110px">
+
+                        ce champ est obligatoire
+                    </span>
+                    </label>
+                  </li>
+                  <li class="col-md-6">
+
+                    <label>*MARQUE
+                      <select class="selectpicker"  formControlName="marque"  >
+                        <option value="">Choix</option>
+                        <option *ngFor="let m of listemarque" [ngValue]="m.name">{{m.name}}</option>
+
+
+
+                      </select>
+                      <span *ngIf="produitForm.get('marque').hasError('required') " style="color: red;margin-left: 80px">
+
+                        ce champ est obligatoire
+                    </span>
+                    </label>
+
+                  </li>
+                  <!-- TOWN/CITY -->
+                  <li class="col-md-6">
+                    <label>*COULEUR
+                      <select class="selectpicker"  formControlName="couleur" >
+                        <option value="">Choix</option>
+                        <option value="noir">Noir</option>
+                        <option value="gris">gris</option>
+                        <option value="blanc">blanc</option>
+                        <option value="rouge">rouge</option>
+                        <option value="bleu">bleu</option>
+                        <option value="beige">beige</option>
+                        <option value="jaune">jaune</option>
+                        <option value="camel">camel</option>
+                      </select>
+                      <span *ngIf="produitForm.get('couleur').hasError('required') " style="color: red;margin-left: 80px">
+
+                        ce champ est obligatoire
+                    </span>
+                    </label>
+                  </li>
+
+                  <!-- COUNTRY -->
+
+                  <!-- EMAIL ADDRESS -->
+                  <li class="col-md-6">
+                    <label> DESCRIPTION
+                      <textarea name="postal-code" value="" placeholder="" style="width: 655px;height: 100px;border-color: #999999"  formControlName="description"></textarea>
+                    </label>
+                  </li>
+                  <!-- PHONE -->
+
+
+                  <!-- PHONE -->
+                  <li class="col-md-6" style="margin-left: 220px">
+                    <button type="submit" class="btn" [disabled]="produitForm.invalid" (click)="submit()">continue</button>
+                  </li>
+
+                  <!-- CREATE AN ACCOUNT -->
+
+                </ul>
+              </form>
+
+
+            </div>
+
+            <!-- SUB TOTAL -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+
+
+  <!-- News Letter -->
+
+</div>
+
+
+
+
+

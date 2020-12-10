@@ -1,0 +1,74 @@
+
+<!--======= SUB BANNER =========-->
+<section class="sub-bnr" data-stellar-background-ratio="0.5" style="background: url(assets/images/detail.png) no-repeat;">
+  <div class="position-center-center">
+    <div class="container">
+      <h4>La marque de {{marque}}</h4>
+
+      <ol class="breadcrumb">
+        <li><a routerLink="/home">Accueil</a></li>
+        <li class="active">{{marque}}</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- Content -->
+<div id="content">
+
+  <!-- Popular Products -->
+  <section class="shop-page padding-top-100 padding-bottom-100">
+    <div class="container">
+      <div class="item-display">
+        <div class="row">
+          <div class="col-xs-6"> <span class="product-num"></span> </div>
+
+          <!-- Products Select -->
+          <div class="col-xs-6">
+            <div class="pull-right">
+
+              <!-- Short By -->
+              <select class="selectpicker">
+                <option>Trier par</option>
+                <option>prix croissant</option>
+                <option>prix decroissant</option>
+              </select>
+              <!-- Filter By -->
+
+
+              <!-- GRID & LIST -->
+              <a  class="grid-style"><i class="icon-grid"></i></a> <a href="#." class="list-style"><i class="icon-list"></i></a> </div>
+          </div>
+          <form class="form-inline md-form form-sm active-pink active-pink-2" style="margin-left: 20px">
+            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" (input)="searchcategorie($event)" placeholder="categorie" [(ngModel)]="categorieinput" name="categorieinput">
+          </form>
+        </div>
+      </div>
+
+      <!-- Popular Item Slide -->
+      <div class="papular-block row single-img-demos">
+
+        <!-- Item -->
+        <div class="col-md-3" *ngFor="let p of produits">
+          <div class="item">
+            <!-- Item img -->
+            <div class="item-img"> <img class="img-1" src="{{'http://localhost:8089/SpringMVC/servlet/getimageofproduct/'+p.id}}" alt="" style="height: 250px">
+              <!-- Overlay -->
+              <div class="overlay">
+                <div class="position-center-center">
+                  <div class="inn"><a ><i class="icon-basket"></i></a> <a  ><i class="icon-heart"></i></a></div>
+                </div>
+              </div>
+            </div>
+            <!-- Item Name -->
+            <div class="item-name"> <a [routerLink]="['/detailproduit',p.id]">{{p.marque}}</a>
+
+            </div>
+            <!-- Price -->
+            <span class="price"><small></small>{{p.prix}} DT</span> </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+

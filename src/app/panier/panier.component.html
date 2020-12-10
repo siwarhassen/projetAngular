@@ -1,0 +1,147 @@
+
+<!-- Wrap -->
+
+  <!--======= SUB BANNER =========-->
+  <section class="sub-bnr" data-stellar-background-ratio="0.5" style="background: url(assets/images/panier.png) no-repeat;">
+    <div class="position-center-center">
+      <div class="container">
+        <h4>Panier</h4>
+
+        <ol class="breadcrumb">
+          <li><a href="#">accueil</a></li>
+          <li><a href="#">panier</a></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <div id="content">
+
+    <!--======= PAGES INNER =========-->
+    <section class="padding-top-100 padding-bottom-100 pages-in chart-page">
+      <div class="container">
+
+        <!-- Payments Steps -->
+        <div class="shopping-cart text-center">
+          <div class="cart-head">
+            <ul class="row">
+              <!-- PRODUCTS -->
+              <li class="col-sm-2 text-left">
+                <h6>PRODUITS</h6>
+              </li>
+              <!-- NAME -->
+              <li class="col-sm-4 text-left">
+                <h6>PRODUIT ID</h6>
+              </li>
+              <!-- PRICE -->
+              <li class="col-sm-2">
+                <h6>PRIX</h6>
+              </li>
+
+
+              <!-- TOTAL PRICE -->
+              <li class="col-sm-2">
+                <h6>supprimer</h6>
+              </li>
+              <li class="col-sm-1"> </li>
+            </ul>
+          </div>
+
+          <!-- Cart Details -->
+          <ul class="row cart-details" *ngFor="let p of listproduit">
+            <li class="col-sm-6">
+              <div class="media">
+                <!-- Media Image -->
+                <div class="media-left media-middle"> <a  class="item-img"> <img class="media-object" src="{{'http://localhost:8089/SpringMVC/servlet/getimageofproduct/'+p.id}}" alt=""> </a> </div>
+
+                <!-- Item Name -->
+                <div class="media-body">
+                  <div class="position-center-center">
+                    <h5>{{p.id}}</h5>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- PRICE -->
+            <li class="col-sm-2">
+              <div class="position-center-center"> <span class="price"><small></small>{{p.prix}} DT</span> </div>
+            </li>
+
+
+
+
+
+            <!-- REMOVE -->
+            <li class="col-sm-1">
+              <div class="position-center-center"> <button (click)="deleteproduitdanspanier(p.id,p)" ><i class="icon-close"></i></button> </div>
+            </li>
+          </ul>
+
+
+        </div>
+      </div>
+    </section>
+
+
+    <section class="padding-top-100 padding-bottom-100 light-gray-bg shopping-cart small-cart">
+      <div class="container">
+
+        <!-- SHOPPING INFORMATION -->
+        <div class="cart-ship-info margin-top-0" style="margin-left: 270px;width: 1600px">
+          <div class="row">
+
+            <!-- DISCOUNT CODE -->
+
+
+            <!-- SUB TOTAL -->
+            <div class="col-sm-5">
+              <h6>grand total</h6>
+              <div class="grand-total">
+                <app-totalprixpanier  [listproduit]="listproduit" (notification)="totalproduit($event)"></app-totalprixpanier>
+                <br>
+                <p class="all-total">TOTAL COST <span> {{totalprix}} DT</span></p>
+                <button class="btn" (click)="downloadCommande()">Commander</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--======= PAGES INNER =========-->
+
+
+    <!-- About -->
+
+
+
+  </div>
+
+<div id="hi" hidden="true">
+  <p> Prix Total :{{totalprix}} DT</p>
+  <p style="color: red">  Livraison:7 DT</p>
+
+</div>
+  <table id="my-table" class="table" hidden="true">
+    <h1>hufierskhdljf</h1>
+    <tr>
+      <th>IdProduit</th>
+      <th>Prix</th>
+      <th>Description</th>
+    </tr>
+    <tr *ngFor="let p of listproduit">
+      <td>{{p.id}}</td>
+      <td>{{p.prix}} DT</td>
+      <td>{{p.description}}</td>
+    </tr>
+    <tr >
+
+
+
+    </tr>
+
+
+
+  </table>
+

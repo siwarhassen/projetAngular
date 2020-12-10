@@ -1,0 +1,200 @@
+
+{{b}}
+  <!--======= SUB BANNER =========-->
+  <section class="sub-bnr" data-stellar-background-ratio="0.5" style="background: url(assets/images/register.jpg) no-repeat;">
+    <div class="position-center-center">
+      <div class="container">
+        <h4>REGISTER</h4>
+        <p>créer un compte pour vendre vos vetements et acheter des produits à bas prix</p>
+        <ol class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Pages</a></li>
+          <li class="active">REGISTER</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <div id="content">
+
+    <!--======= PAGES INNER =========-->
+    <section class="chart-page padding-top-100 padding-bottom-100">
+      <div class="container">
+
+        <!-- Payments Steps -->
+        <div class="shopping-cart">
+
+          <!-- SHOPPING INFORMATION -->
+          <div class="cart-ship-info register">
+            <div class="row">
+
+              <!-- ESTIMATE SHIPPING & TAX -->
+              <div class="col-sm-12">
+                <h6>REGISTER</h6>
+                <form  [formGroup]="userForm" >
+                  <ul class="row">
+
+                    <!-- Name -->
+                    <li class="col-md-6">
+                      <label> *NOM
+                        <input type="text" name="first-name" value="" placeholder="" formControlName="firstname" [ngStyle]="{'border-color':firstname.errors && firstname.touched?'red':'black'}">
+
+
+                        <span  *ngIf="firstname.hasError('required') && firstname.touched" style="margin-left: 330px;color: red">
+
+                          Le nom est obligatoire
+                        </span>
+                        <span  *ngIf="firstname.hasError('minlength')&& firstname.touched" style="margin-left: 330px;color: red">
+
+                          minimum 3 caracteres
+                        </span>
+
+                      </label>
+
+
+
+                    </li>
+
+                    <!-- LAST NAME -->
+                    <li class="col-md-6">
+                      <label> *PRENOM
+                        <input type="text" name="last-name" value="" placeholder="" formControlName="lastname" [ngStyle]="{'border-color':lastname.errors && lastname.touched?'red':'black'}">
+                        <span  *ngIf="lastname.hasError('required') && lastname.touched" style="margin-left: 310px;color: red">
+
+                          Le prenom est obligatoire
+                        </span>
+                        <span  *ngIf="lastname.hasError('minlength')&& lastname.touched" style="margin-left: 330px;color: red">
+
+                          minimum 3 caracteres
+                        </span>
+                      </label>
+                    </li>
+
+                    <!-- EMAIL ADDRESS -->
+                    <li class="col-md-6">
+                      <label> *EMAIL
+                        <input type="text" name="contry-state" value="" placeholder="" formControlName="email" [ngStyle]="{'border-color':email.errors && email.touched?'red':'black'}">
+                        <span  *ngIf="email.hasError('required') && email.touched" style="margin-left: 370px;color: red">
+
+                          l'email est obligatoire
+                        </span>
+                        <span  *ngIf="email.hasError('pattern')&& email.touched" style="margin-left: 400px;color: red">
+
+                          verifier votre mail
+                        </span>
+                      </label>
+                    </li>
+                    <!-- PHONE -->
+                    <li class="col-md-6">
+                      <label> *TELEPHONE
+                        <input type="text" name="phone" value="" placeholder="" formControlName="phone" [ngStyle]="{'border-color':phone.errors && phone.touched?'red':'black'}">
+                        <span  *ngIf="phone.hasError('required') && phone.touched" style="margin-left:250px;color: red">
+
+                          Le telephone est obligatoire
+                        </span>
+                        <span  *ngIf="phone.hasError('pattern')&& phone.touched" style="margin-left: 250px;color: red">
+
+                          verifier votre telephone
+                        </span>
+                      </label>
+                    </li>
+
+                    <!-- LAST NAME -->
+                    <li class="col-md-6">
+                      <label> *MOTDEPASSE
+                        <input type="password" name="last-name" value="" placeholder="" formControlName="password" [ngStyle]="{'border-color':password.errors && password.touched?'red':'black'}">
+                        <span  *ngIf="password.hasError('required') && password.touched" style="margin-left: 280px;color: red">
+
+                          Le password est obligatoire
+                        </span>
+                        <span  *ngIf="password.hasError('minlength')&& password.touched" style="margin-left: 330px;color: red">
+
+                          minimum 4 caracteres
+                        </span>
+                        <span  *ngIf="password.hasError('pattern')&& password.touched && !password.hasError('minlength')" style="margin-left: 120px;color: red">
+
+                          au moins une lettre majuscule,minuscule et un numéro
+                        </span>
+                      </label>
+                    </li>
+
+                    <!-- LAST NAME -->
+                    <li class="col-md-6">
+                      <label> *ConfirmMOTDEPASSE
+                        <input type="password" name="last-name" value="" placeholder="" formControlName="confirmpassword" [ngStyle]="{'border-color':(confirmpassword.errors && confirmpassword.touched) ||(userForm.errors && confirmpassword.touched)?'red':'black'}">
+                        <span  *ngIf="userForm.errors  && confirmpassword.touched" style="margin-left: 170px;color: red">
+
+                          les 2 passwords ne sont pas compatibles
+                        </span>
+                      </label>
+                    </li>
+                    <li class="col-md-6">
+                      <!-- ADDRESS -->
+                      <label>*ADRESSE
+                        <input type="text" name="address" value="" placeholder="" formControlName="adresse" [ngStyle]="{'border-color':adresse.errors && adresse.touched?'red':'black'}">
+                      </label>
+                    </li>
+                    <li class="col-md-6">
+                      <!-- ADDRESS -->
+                      <label>*CodePostal
+                        <input type="number" name="codepostal" value="" placeholder="" formControlName="codepostal" [ngStyle]="{'border-color':codepostal.errors && codepostal.touched?'red':'black'}">
+                        <span  *ngIf="codepostal.hasError('required') && codepostal.touched" style="margin-left: 280px;color: red">
+
+                          Le codepostal est obligatoire
+                        </span>
+                        <span  *ngIf="codepostal.hasError('pattern')&& codepostal.touched" style="margin-left: 400px;color: red">
+
+                          4 caracteres
+                        </span>
+                      </label>
+                    </li>
+                    <li class="col-md-6" style="margin-left: 1px">
+                      <label> Ville
+                        <select class="selectpicker" name="contry-state" formControlName="ville" [ngStyle]="{'border-color':ville.errors && ville.touched?'red':'black'}">
+                          <option ></option>
+                          <option value="tunis">Tunis</option>
+                          <option value="sousse">Sousse</option>
+                          <option value="sfax">Sfax</option>
+                          <option value="kairouen">Kairouen</option>
+                          <option value="gabes">Gabes</option>
+                          <option value="hammamet">Hammamet</option>
+                          <option value="bizerte">Bizerte</option>
+                          <option value="tozeur">Tozeur</option>
+                          <option value="monastir">Monastir</option>
+                          <option value="ariana">Ariana</option>
+                          <option value="mahdia">Mahdia</option>
+                          <option value="tataouine">Tataouine</option>
+                          <option value="gafsa">Gafsa</option>
+                          <option value="nabeul">Nabeul</option>
+                          <option value="benarous">Ben Arous</option>
+                          <option value="jandouba">Jendouba</option>
+                        </select>
+                      </label>
+                    </li>
+
+                    <li class="col-md-6">
+                    <img  style="margin-left:180px" *ngIf="imagePreview" [src]="imagePreview" alt="" style="width: 350px;height: 150px;margin-left: 600px;margin-top: -70px">
+                    <button  style="margin-left:1000px;margin-top:-150px " class="btn btn-success" type="button" (click)="a.click()">photo</button>
+                    <input accept="image/*" [style.display]="'none'" style="width:710px; margin-left:180px" type="file"   #a (change)="onImagePick($event)" >
+                    </li>
+
+                    <!-- COUNTRY -->
+
+                    <!-- TOWN/CITY -->
+
+                    <!-- PHONE -->
+                    <li class="col-md-6">
+                      <button [disabled]="userForm.invalid" (click)="submit()" type="submit" class="btn" style="margin-left: -200px;margin-top: 120px">REGISTER NOW</button>
+                    </li>
+                  </ul>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </div>

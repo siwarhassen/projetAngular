@@ -1,0 +1,194 @@
+
+
+<!--======= SUB BANNER =========-->
+<section class="sub-bnr" data-stellar-background-ratio="0.5" style="background: url(assets/images/detail.png) no-repeat;">
+  <div class="position-center-center">
+    <div class="container">
+      <h4>Detail produit</h4>
+
+      <ol class="breadcrumb">
+        <li><a routerLink="/home">Accueil</a></li>
+        <li class="active">Produit n: {{produit.id}}</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- Content -->
+<div id="content">
+
+  <!-- Popular Products -->
+  <section class="padding-top-100 padding-bottom-100">
+    <div class="container">
+
+      <!-- SHOP DETAIL -->
+      <div class="shop-detail">
+        <div class="row">
+
+          <!-- Popular Images Slider -->
+          <div class="col-md-7">
+
+            <!-- Images Slider -->
+            <div class="images-slider">
+              <ul class="slides">
+                <li data-thumb="assets/images/large-img-1.jpg"> <img class="img-responsive" src="{{'http://localhost:8089/SpringMVC/servlet/getimageofproduct/'+produit.id}}"  style="width: 700px;height:500px" alt=""> </li>
+
+
+              </ul>
+            </div>
+          </div>
+
+          <!-- COntent -->
+          <div class="col-md-5">
+            <h4>{{produit.objets}}</h4>
+            <span class="price"><small></small>{{produit.prix}} DT</span>
+
+            <!-- Sale Tags -->
+
+            <ul class="item-owner">
+              <li>Marque :<span> {{produit.marque}}</span></li>
+              <li>Genre:<span> {{produit.genre}}</span></li>
+              <li>Etat :<span> {{produit.etat}}</span></li>
+
+            </ul>
+
+            <!-- Item Detail -->
+            <p>{{produit.description}}</p>
+
+            <!-- Short By -->
+            <div class="some-info">
+              <ul class="row margin-top-30">
+
+
+                <!-- COLORS -->
+                <li class="col-xs-8">
+                  <ul class="colors-shop">
+                    <li><span class="margin-right-20">Couleur:  {{produit.couleur}}</span></li>
+
+                  </ul>
+                </li>
+
+                <!-- ADD TO CART -->
+                <li class="col-xs-6" *ngIf="verifp"> <button  class="btn" (click)="deletepanier()" appHighlight> supprimer panier</button> </li>
+                <li class="col-xs-6" *ngIf="(userconnecte!=userproduit.id) && (!verifp)"> <button (click)="ajoutproduitaupanier()" class="btn" appHighlight> panier</button> </li>
+
+                <li class="col-xs-6" *ngIf="userconnecte==userproduit.id  "> <button (click)="deleteproduit()" class="btn" appHighlight>supprimer </button> </li>
+                <!-- LIKE -->
+
+                <li class="col-xs-6" *ngIf="verifFav"> <a (click)="deleteproduitfavoris()" class="like-us" aria-hidden="true" ><i  class="fa fa-heart"></i></a> </li>
+                <li class="col-xs-6" *ngIf="(userconnecte!=userproduit.id) && (!verifFav)"> <a (click)="ajoutproduitaufavoris()" class="like-us"><i class="icon-heart"></i></a> </li>
+              </ul>
+
+              <!-- INFOMATION -->
+              <div class="inner-info">
+
+
+                <h6>PARTAGER CE PRODUIT</h6>
+
+                <!-- Social Icons -->
+
+                  <share-buttons style="margin-top: 20px" theme="modern-light-theme" show="6" ></share-buttons>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--======= PRODUCT DESCRIPTION =========-->
+      <div class="item-decribe">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs animate fadeInUp" data-wow-delay="0.4s" role="tablist">
+          <li role="presentation" class="active"><a href="#descr" role="tab" data-toggle="tab">DESCRIPTION</a></li>
+          <li role="presentation"><a href="#review" role="tab" data-toggle="tab">Commentaire ({{nbrecomment}})</a></li>
+
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content animate fadeInUp" data-wow-delay="0.4s">
+          <!-- DESCRIPTION -->
+          <div role="tabpanel" class="tab-pane fade in active" id="descr">
+
+            <h6>informations sur le vendeur</h6>
+            <ul>
+              <li>
+                <p>Nom et prenom: {{produit.user.lastname}} {{produit.user.lastname}}</p>
+              </li>
+              <li>
+                <p> E-mail: {{produit.user.email}} </p>
+              </li>
+              <li>
+                <p> Adresse: {{produit.user.adresse}}</p>
+              </li>
+              <li>
+                <p> Numéro de téléphone :{{produit.user.phone}}</p>
+              </li>
+              <li>
+                <p> ville :{{produit.user.ville}}</p>
+              </li>
+
+            </ul>
+          </div>
+
+          <!-- REVIEW -->
+          <div role="tabpanel" class="tab-pane fade" id="review">
+            <h6>{{nbrecomment}} Commentaires</h6>
+
+
+            <!-- REVIEW PEOPLE 1 -->
+
+            <div class="media" *ngFor="let c of listcomment" >
+              <div class="media-left">
+                <!--  Image -->
+                <div class="avatar"> <a href="#"> <img class="media-object" src="{{'http://localhost:8089/SpringMVC/servlet/getimageofuser/'+c.user.id}}"  alt="" style="width: 290px"> </a> </div>
+              </div>
+              <!--  Details -->
+              <div class="media-body" >
+                <p class="font-playfair">{{c.user.firstname}} {{c.user.lastname}}</p> <button class="btn btn-dark btn-small pull-right no-margin" (click)="deletecomment(c.id)">supprimer</button>
+                <h6>{{c.content}}  <span class="pull-right" style="margin-top: -30px;margin-left: 20px">{{c.date}}</span> </h6>
+              </div>
+            </div>
+
+            <!-- ADD REVIEW -->
+            <h6 class="margin-t-40">AJOUTER</h6>
+            <form  #formcomment="ngForm" >
+              <ul class="row">
+                <!--
+                <li class="col-sm-6">
+                  <label> *NAME
+                    <input type="text" value="" placeholder="">
+                  </label>
+                </li>
+                <li class="col-sm-6">
+                  <label> *EMAIL
+                    <input type="email" value="" placeholder="">
+                  </label>
+                </li>
+                 -->
+                <li class="col-sm-12">
+                  <label> *VOTRE COMMENTAIRE
+                    <textarea  name="contenu" [(ngModel)]="comment.content"   #contenu="ngModel" required></textarea>
+                  </label>
+                </li>
+
+
+                <li class="col-sm-6">
+                  <button type="submit" class="btn btn-dark btn-small pull-right no-margin" [disabled]="formcomment.invalid" (click)="submitcomment(formcomment)">SOUMMETRE</button>
+                </li>
+              </ul>
+            </form>
+          </div>
+
+          <!-- TAGS -->
+          <div role="tabpanel" class="tab-pane fade" id="tags"> </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<app-produitsimilaire  [produit]="produit" ></app-produitsimilaire>
+
+
+
+</div>
+

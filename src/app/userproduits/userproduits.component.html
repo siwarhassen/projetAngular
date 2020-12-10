@@ -1,0 +1,103 @@
+
+  <!--======= SUB BANNER =========-->
+  <section class="sub-bnr" data-stellar-background-ratio="0.5" style="background: url(assets/images/mesaffiches.jpg) no-repeat;">
+    <div class="position-center-center">
+      <div class="container">
+        <h4>Mes produits</h4>
+
+        <ol class="breadcrumb">
+          <li><a routerLink="/home">Accueil</a></li>
+          <li class="active"><a>Mes produits </a></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <div id="content">
+
+    <!-- Blog List -->
+    <section class="blog-list padding-top-100 padding-bottom-100">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9" >
+
+            <!-- Article -->
+            <article *ngFor="let p of listproduits" >
+<div  *ngIf="p.prix<=searchprice || searchprice ===null">
+              <!-- Post Img -->
+              <img class="img-responsive" src="{{'http://localhost:8089/SpringMVC/servlet/getimageofproduct/'+p.id}}" alt="" style="width: 1400px;height: 500px" >
+              <!-- Tittle -->
+              <div class="post-tittle left"> <a  class="tittle">{{p.marque}}</a>
+                <!-- Post Info -->
+                 <span><i class="primary-color icon-calendar"></i> {{p.date}}</span> <span><i class="primary-color icon-bubble"></i> 0</span>  </div>
+              <!-- Post Content -->
+              <div class="text-left">
+                <p> Description :{{p.description}} <br>
+
+
+                </p>
+                <p>  Prix: {{p.prix}} DT</p>
+                <p>  Etat: {{p.etat}} </p>
+                <p>  genre: {{p.genre}} </p>
+                <p>  objet: {{p.objets}} </p>
+                <a [routerLink]="['updateproduit',p.id]" class="btn">Modifier</a>
+                <a  class="btn" style="margin-left: 50px" (click)="deleteproduit(p.id,p)" >supprimer</a></div>
+</div>
+            </article>
+
+
+
+
+
+
+
+
+
+          </div>
+
+          <!-- Sider Bar -->
+          <div class="col-md-3">
+
+            <!-- SEARCH -->
+            <div class="search">
+              <input class="form-control" type="number"  (keyup)="searchliste($event)" placeholder="maxprix" [(ngModel)]="searchprice" name="searchinput">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </div>
+            <div class="shop-sidebar">
+
+              <!-- Category -->
+              <h5 class="shop-tittle margin-bottom-30">category</h5>
+              <ul class="shop-cate">
+                <li><a>Tous</a></li>
+                <li *ngFor="let o of objets"><a > {{o.name}} </a></li>
+              </ul>
+
+              <!-- TAGS -->
+              <h5 class="shop-tittle margin-top-60 margin-bottom-30">Marques</h5>
+              <ul class="shop-tags">
+
+                <li *ngFor="let m of marques" ><a >{{m.name}}</a></li>
+              </ul>
+
+              <!-- BRAND -->
+              <h5 class="shop-tittle margin-top-60 margin-bottom-30">archives</h5>
+              <ul class="shop-cate">
+                <li><a > Janvier 2015 </a></li>
+                <li><a > Fevrier 2015 </a></li>
+                <li><a > mars 2015 </a></li>
+                <li><a > avril 2015 </a></li>
+                <li><a > mai 2015 </a></li>
+              </ul>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+  </div>

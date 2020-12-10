@@ -1,0 +1,185 @@
+
+
+
+  <!--======= SUB BANNER =========-->
+  <section class="sub-bnr" data-stellar-background-ratio="0.5" style="background: url(assets/images/vendre.jpg) no-repeat;">
+    <div class="position-center-center">
+      <div class="container">
+        <h4>Vendez votre produit</h4>
+
+        <ol class="breadcrumb">
+          <li><a routerLink="/home">Accueil</a></li>
+          <li class="active">Vendre</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <div id="content">
+
+    <!--======= PAGES INNER =========-->
+    <section class="chart-page padding-top-100 padding-bottom-100" style="margin-left: 300px">
+      <div class="container">
+
+        <!-- Payments Steps -->
+        <div class="shopping-cart">
+
+          <!-- SHOPPING INFORMATION -->
+          <div class="cart-ship-info">
+            <div class="row">
+
+              <!-- ESTIMATE SHIPPING & TAX -->
+              <div class="col-sm-7">
+                <h6>PRODUIT A VENDRE</h6>
+                <form  #formproduit="ngForm">
+                  <ul class="row">
+
+                    <!-- Name -->
+                      <li class="col-md-6" >
+                        <label> *OBJET
+                      <select class="selectpicker" name="contry-state" #objet="ngModel" [(ngModel)]="produit.objets" >
+                        <option  selected value=""  >Choix</option>
+                        <option value="{{o.name}}" *ngFor="let o of objets">{{o.name}}</option>
+
+
+                      </select>
+                          <span *ngIf="objet.hasError('required') && objet.dirty" style="color: red;margin-left: 150px">
+                         objet obligatoire
+                        </span>
+                        </label>
+
+                       <!-- <span *ngIf="objet.invalid"  style="color: red;margin-left: 260px;margin-top: -20px">objet obligatoire</span>-->
+                      </li>
+
+                    <li class="col-md-6" >
+                      <label> *Marque
+                        <select class="selectpicker" name="marque" #marque="ngModel" [(ngModel)]="produit.marque"  required>
+                          <option  selected value="">Choix</option>
+                          <option value="{{m.name}}" *ngFor="let m of marques">{{m.name}}</option>
+
+                        </select>
+                        <span *ngIf="marque.hasError('required') && marque.dirty" style="color: red;margin-left: 100px">
+                         La Marque est obligatoire
+                        </span>
+                      </label>
+
+                    </li>
+                    <!-- LAST NAME -->
+
+                    <li class="col-md-6">
+                      <!-- COMPANY NAME -->
+                      <label>*GENRE
+                        <select class="selectpicker" name="genre"  #genre="ngModel" [(ngModel)]="produit.genre"  required>
+                          <option  selected value="">Choix</option>
+                          <option value="hommes">Homme</option>
+                          <option value="femmes">femme</option>
+                          <option value="enfant">enfant</option>
+
+
+                        </select>
+                        <span *ngIf="genre.hasError('required') && genre.dirty" style="color: red;margin-left: 100px">
+                         Ce champ est obligatoire
+                        </span>
+                      <!--  <span *ngIf="genre.invalid"  style="color: red;margin-left: 150px;margin-top: -20px">objet obligatoire</span> -->
+                      </label>
+                    </li>
+                    <li class="col-md-6">
+                      <!-- ADDRESS -->
+                      <label>*ETAT
+                        <select class="selectpicker" name="etat"  [(ngModel)]="produit.etat"  #etat="ngModel"  required>
+                          <option  selected value="">Choix</option>
+                          <option value="Neuf Avec étiquette">Neuf Avec étiquette</option>
+                          <option value="Neuf Sans étiquette">Neuf Sans étiquette</option>
+                          <option value="Trés bon état">Trés bon état</option>
+                          <option value="Bon état">Bon état</option>
+                          <option value="Satisfaisant">Satisfaisant</option>
+                        </select>
+                        <span *ngIf="etat.hasError('required') && etat.dirty" style="color: red;margin-left: 100px">
+                         Ce champ est obligatoire
+                        </span>
+                      </label>
+                    </li>
+                    <!-- TOWN/CITY -->
+                    <li class="col-md-6">
+                      <label>*COULEUR
+                        <select class="selectpicker" name="couleur"  [(ngModel)]="produit.couleur"  #couleur="ngModel"  required>
+                          <option  selected value="">Choix</option>
+                          <option value="noir">Noir</option>
+                          <option value="gris">gris</option>
+                          <option value="blanc">blanc</option>
+                          <option value="rouge">rouge</option>
+                          <option value="bleu">bleu</option>
+                          <option value="beige">beige</option>
+                          <option value="jaune">jaune</option>
+                          <option value="camel">camel</option>
+                        </select>
+                        <span *ngIf="couleur.hasError('required') && couleur.dirty" style="color: red;margin-left: 80px">
+                         Ce champ est obligatoire
+                        </span>
+                      </label>
+                    </li>
+
+                    <!-- COUNTRY -->
+                    <li class="col-md-6">
+                      <label>*PRIX
+                        <input type="number" name="prix" value="" placeholder="" style="height: 30px;border-color: #999999"  [(ngModel)]="produit.prix"  #prix="ngModel"  required pattern="^[1-9]([0-9])+"  [ngStyle]="{'border-color':prix.errors && prix.touched?'red':'grey'}">
+                      <span  *ngIf="prix.hasError('required') && prix.touched" style="color: red;margin-left: 120px">
+                        ce champ est obligatoire
+                      </span>
+                        <span  *ngIf="prix.hasError('pattern') && prix.touched" style="color: red;margin-left: 180px">
+                        minimun 10DT
+                      </span>
+
+                       <!-- <div *ngIf="prix.hasError( 'min') && prix.touched">
+                          <div *ngIf="prix.errors.required">siw</div>
+                        </div>-->
+                      </label>
+                    </li>
+
+                    <!-- EMAIL ADDRESS -->
+                    <li class="col-md-6">
+                      <label> DESCRIPTION
+                        <textarea name="postal-code" value="" placeholder="" style="width: 655px;height: 100px;border-color: #999999"  [(ngModel)]="produit.description"  #description="ngModel" ></textarea>
+                      </label>
+                    </li>
+                    <!-- PHONE -->
+                    <li class="col-md-6">
+                      <button  style="margin-top: 150px;margin-left: -100px" class="btn btn-success" type="button" (click)="a.click()">photo</button>
+                      <img  *ngIf="imagePreview" [src]="imagePreview" alt="" style="width:670px;height: 400px;margin-top: 20px;margin-left:-350px">
+
+                      <input accept="image/*" [style.display]="'none'" style="width:710px; margin-left:180px" type="file"   #a (change)="onImagePick($event)" >
+                    </li>
+
+                    <!-- PHONE -->
+                    <li class="col-md-6" style="margin-left: 220px">
+                      <button type="submit" class="btn" [disabled]="formproduit.invalid" (click)="vendre()" style="margin-top: 50px;width:400px;margin-left: -90px">vendre</button>
+                    </li>
+
+                    <!-- CREATE AN ACCOUNT -->
+
+                  </ul>
+                </form>
+
+
+              </div>
+
+              <!-- SUB TOTAL -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+
+
+    <!-- News Letter -->
+
+  </div>
+
+
+
+
+

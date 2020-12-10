@@ -1,0 +1,398 @@
+{
+  "produits": [
+    {
+      "objets": "gilet",
+      "genre": "enfant",
+      "etat": "Neuf Avec étiquette",
+      "couleur": "blanc",
+      "prix": 50,
+      "description": "jamais porté",
+      "id": 9661,
+      "userId": 17638,
+      "photo": "assets/images/enfants/a.png",
+      "marque": "zara",
+      "date": "2020-12-04"
+    },
+    {
+      "objets": "gilet",
+      "genre": "enfant",
+      "etat": "Neuf Avec étiquette",
+      "couleur": "blanc",
+      "prix": 50,
+      "description": "jamais porté",
+      "id": 2698,
+      "userId": 17638,
+      "photo": "assets/images/enfants/a.png",
+      "marque": "zara",
+      "date": "2020-12-04"
+    },
+    {
+      "objets": "pull",
+      "genre": "enfant",
+      "etat": "Neuf Avec étiquette",
+      "couleur": "blanc",
+      "prix": 50,
+      "description": " jamais porté",
+      "id": 14444,
+      "userId": 17638,
+      "photo": "assets/images/enfants/b.png",
+      "marque": "bershka",
+      "date": "2020-12-04"
+    },
+    {
+      "objets": "pull",
+      "genre": "enfant",
+      "etat": "Neuf Avec étiquette",
+      "couleur": "blanc",
+      "prix": 50,
+      "description": " jamais porté",
+      "id": 2854,
+      "userId": 17638,
+      "photo": "assets/images/enfants/c.png",
+      "marque": "zen",
+      "date": "2020-12-04"
+    },
+    {
+      "objets": "pull",
+      "genre": "enfant",
+      "etat": "Neuf Avec étiquette",
+      "couleur": "blanc",
+      "prix": 29,
+      "description": " jamais porté",
+      "id": 2,
+      "userId": 1,
+      "photo": "assets/images/enfants/d.png",
+      "marque": "bershka",
+      "date": "2020-12-04",
+      "objet": "pull"
+    },
+    {
+      "etat": "Neuf Sans étiquette",
+      "marque": "zen",
+      "genre": "hommes",
+      "couleur": "noir",
+      "prix": 2555,
+      "description": "'(zterfqszdx<",
+      "id": 8221,
+      "userId": 49584,
+      "date": "2020-12-05"
+    },
+    {
+      "marque": "springField",
+      "genre": "hommes",
+      "etat": "Neuf Avec étiquette",
+      "couleur": "blanc",
+      "prix": 29452,
+      "description": "thfbgxc ",
+      "id": 5216,
+      "userId": 49584,
+      "date": "2020-12-05"
+    },
+    {
+      "objets": "geans",
+      "marque": "springField",
+      "genre": "hommes",
+      "etat": "Neuf Avec étiquette",
+      "couleur": "blanc",
+      "prix": 52754,
+      "description": "yfuh",
+      "id": 1264,
+      "userId": 49584,
+      "date": "2020-12-05"
+    },
+    {
+      "objets": "pantalon",
+      "marque": "zara",
+      "genre": "hommes",
+      "etat": "Trés bon état",
+      "couleur": "blanc",
+      "prix": 200,
+      "description": "waaaw",
+      "id": 4363,
+      "userId": 1,
+      "date": "2020-12-05",
+      "photo": "assets/images/enfants/c.png"
+    },
+    {
+      "objets": "chemise",
+      "marque": "springField",
+      "genre": "hommes",
+      "etat": "Satisfaisant",
+      "couleur": "rouge",
+      "prix": 250,
+      "description": "ytguh",
+      "id": 3066,
+      "userId": 1,
+      "date": "2020-12-06"
+    },
+    {
+      "objets": "geans",
+      "marque": "springField",
+      "genre": "hommes",
+      "etat": "Neuf Avec étiquette",
+      "couleur": "blanc",
+      "prix": 58,
+      "description": "e\"zqs",
+      "id": 6846,
+      "userId": 94154,
+      "date": "2020-12-06"
+    }
+  ],
+  "comments": [
+    {
+      "content": "ygf",
+      "id": 208,
+      "produitId": 9661,
+      "date": "Dec 6, 2020, 3:47 PM",
+      "userId": {
+        "firstname": "gjcbfvc",
+        "lastname": "jghvb",
+        "email": "siwar.hassjuhen@esprit.com",
+        "telephone": "53236799",
+        "adresse": "fsgh",
+        "ville": "ariana",
+        "photo": {},
+        "codepostal": 2010,
+        "password": "siwar9C",
+        "confirmpassword": "siwar9C",
+        "id": 23701
+      }
+    },
+    {
+      "content": "rf",
+      "id": 3858,
+      "produitId": 9661,
+      "date": "Dec 6, 2020, 3:47 PM",
+      "userId": {
+        "firstname": "gjcbfvc",
+        "lastname": "jghvb",
+        "email": "siwar.hassjuhen@esprit.com",
+        "telephone": "53236799",
+        "adresse": "fsgh",
+        "ville": "ariana",
+        "photo": {},
+        "codepostal": 2010,
+        "password": "siwar9C",
+        "confirmpassword": "siwar9C",
+        "id": 23701
+      }
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstname": "siw",
+      "lastname": "hassan",
+      "email": "siwar.hassen@esprit.tn",
+      "phone": "53268789",
+      "adresse": "sousse",
+      "ville": "sousse",
+      "codepostal": 2000,
+      "password": "siwar9S",
+      "confirmpassword": "siwar9S",
+      "photo": "assets/images/admin-avatar.jpg"
+    },
+    {
+      "firstname": "siwar",
+      "lastname": "hassen",
+      "email": "siwar.hassen@esprit.com",
+      "phone": "53236799",
+      "adresse": "getzg",
+      "ville": "monastir",
+      "codepostal": 4020,
+      "password": "tezdgrs",
+      "confirmpassword": "tegdrf",
+      "photo": "assets/images/admin-avatar.jpg",
+      "id": 17638
+    },
+    {
+      "firstname": "ret't",
+      "lastname": "t(erdg",
+      "email": "fer@esprit.com",
+      "phone": "53236799",
+      "adresse": "zqesrdtf",
+      "ville": "monastir",
+      "codepostal": 2045,
+      "password": "rtdyfg",
+      "confirmpassword": "erdtfyg",
+      "photo": "assets/images/admin-avatar.jpg",
+      "id": 79669
+    },
+    {
+      "firstname": "khaled",
+      "lastname": "hassen",
+      "email": "khaledhassen@yahoo.com",
+      "phone": "53236799",
+      "adresse": "ksar hellal",
+      "ville": "ariana",
+      "codepostal": 4019,
+      "password": "khaled",
+      "confirmpassword": "khaled",
+      "photo": "assets/images/admin-avatar.jpg",
+      "id": 59881
+    },
+    {
+      "firstname": "sirine",
+      "lastname": "hassen",
+      "email": "fer@esprit.com",
+      "phone": "53236799",
+      "adresse": "ksar hellal",
+      "ville": "bizerte",
+      "codepostal": 4020,
+      "password": "sirine",
+      "confirmpassword": "sirine",
+      "photo": "assets/images/admin-avatar.jpg",
+      "id": 65825
+    },
+    {
+      "firstname": "ahlem",
+      "lastname": "saidane",
+      "email": "fer@esprit.com",
+      "phone": "53236799",
+      "adresse": "ksar hellal",
+      "ville": "mahdia",
+      "codepostal": 2014,
+      "password": "siw",
+      "confirmpassword": "siw",
+      "photo": "assets/images/admin-avatar.jpg",
+      "id": 49584
+    },
+    {
+      "firstname": "erfdscxw",
+      "lastname": "refsdwx",
+      "email": "siwar.hassen@esprit.com",
+      "phone": "12345678",
+      "adresse": "ksar hellal",
+      "ville": "tunis",
+      "codepostal": 2020,
+      "password": "rfedsc",
+      "confirmpassword": "trgfd",
+      "photo": "assets/images/admin-avatar.jpg",
+      "id": 34386
+    },
+    {
+      "firstname": "haa",
+      "lastname": "chekib",
+      "email": "chekib@esprit.tn",
+      "phone": "53268788",
+      "adresse": "ksar hellal",
+      "ville": "tozeur",
+      "photo": {},
+      "codepostal": 4020,
+      "password": "chekib9C",
+      "confirmpassword": "chekib9C",
+      "id": 94154
+    },
+    {
+      "firstname": "gjcbfvc",
+      "lastname": "jghvb",
+      "email": "siwar.hassjuhen@esprit.com",
+      "telephone": "53236799",
+      "adresse": "fsgh",
+      "ville": "ariana",
+      "photo": {},
+      "codepostal": 2010,
+      "password": "siwar9C",
+      "confirmpassword": "siwar9C",
+      "id": 23701
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "objets": [
+    {
+      "id": 1,
+      "name": "geans"
+    },
+    {
+      "id": 2,
+      "name": "pull"
+    },
+    {
+      "id": 3,
+      "name": "pantalon"
+    },
+    {
+      "id": 4,
+      "name": "robe"
+    },
+    {
+      "id": 5,
+      "name": "chemise"
+    },
+    {
+      "id": 6,
+      "name": "gilet"
+    },
+    {
+      "id": 7,
+      "name": "short"
+    },
+    {
+      "id": 8,
+      "name": "pyjama"
+    },
+    {
+      "id": 9,
+      "name": "ensemble"
+    },
+    {
+      "id": 10,
+      "name": "pantacourt"
+    }
+  ],
+  "marques": [
+    {
+      "id": 1,
+      "name": "zara"
+    },
+    {
+      "id": 2,
+      "name": "bershka"
+    },
+    {
+      "id": 3,
+      "name": "zen"
+    },
+    {
+      "id": 4,
+      "name": "springField"
+    },
+    {
+      "id": 5,
+      "name": "jennyfer"
+    },
+    {
+      "id": 6,
+      "name": "geox"
+    },
+    {
+      "id": 7,
+      "name": "channel"
+    },
+    {
+      "id": 8,
+      "name": "elu"
+    }
+  ],
+  "panier": [
+    {
+      "productId": {
+        "objets": "gilet",
+        "genre": "enfant",
+        "etat": "Neuf Avec étiquette",
+        "couleur": "blanc",
+        "prix": 50,
+        "description": "jamais porté",
+        "id": 9661,
+        "userId": 17638,
+        "photo": "assets/images/enfants/a.png",
+        "marque": "zara",
+        "date": "2020-12-04"
+      },
+      "userId": 94154,
+      "id": 1
+    }
+  ]
+}

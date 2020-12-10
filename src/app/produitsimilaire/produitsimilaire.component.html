@@ -1,0 +1,35 @@
+<!-- Popular Products -->
+<section class="light-gray-bg padding-top-150 padding-bottom-150">
+  <div class="container">
+
+    <!-- Main Heading -->
+    <div class="heading text-center">
+      <h4>Les produits similaires</h4>
+      </div>
+
+    <!-- Popular Item Slide -->
+    <div class="papular-block block-slide single-img-demos"  style=" display: flex;flex-direction:row;justify-content:space-around">
+
+
+
+      <!-- Item -->
+      <div class="item" *ngFor="let lp of listproduitssimilaires">
+        <!-- Item img -->
+        <div class="item-img" > <img  class="img-1" src="{{'http://localhost:8089/SpringMVC/servlet/getimageofproduct/'+lp.id}}" alt="" style="height: 300px;width:350px">
+          <!-- Overlay -->
+          <div class="overlay" >
+            <div class="position-center-center">
+              <div class="inn"><a href="assets/images/product-2.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a href="#." ><i class="icon-heart"></i></a></div>
+            </div>
+          </div>
+        </div>
+        <!-- Item Name -->
+        <div class="item-name"> <a [routerLink]="['/detailproduit',lp.id]">{{lp.marque}}</a>
+          <p>{{lp.etat}}</p>
+        </div>
+        <!-- Price -->
+        <span class="price"><small></small>{{lp.prix}} DT</span> </div>
+
+    </div>
+  </div>
+</section>

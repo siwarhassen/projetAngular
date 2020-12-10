@@ -1,0 +1,172 @@
+
+  <!--======= SUB BANNER =========-->
+
+  <section class="sub-bnr" data-stellar-background-ratio="0.5" *ngIf="category=='hommes'" style="background: url(assets/images/homme.png) no-repeat;">
+    <div class="position-center-center">
+      <div class="container">
+        <h4> Hommes</h4>
+
+        <ol class="breadcrumb">
+          <li><a routerLink="/home">Accueil</a></li>
+          <li class="active">{{category}}</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+<section class="sub-bnr" data-stellar-background-ratio="0.5" *ngIf="category=='femmes'" style="background: url(assets/images/femme.jpg) no-repeat;">
+  <div class="position-center-center">
+    <div class="container">
+      <h4> femmes</h4>
+
+      <ol class="breadcrumb">
+        <li><a routerLink="/home">Accueil</a></li>
+        <li class="active">{{category}}</li>
+      </ol>
+    </div>
+  </div>
+</section>
+<section class="sub-bnr" data-stellar-background-ratio="0.5" *ngIf="category=='enfant'" style="background: url(assets/images/bebes.png) no-repeat;">
+  <div class="position-center-center">
+    <div class="container">
+      <h4> Enfants</h4>
+
+      <ol class="breadcrumb">
+        <li><a routerLink="/home">Accueil</a></li>
+        <li class="active">{{category}}</li>
+      </ol>
+    </div>
+  </div>
+</section>
+  <!-- Content -->
+  <div id="content">
+
+    <!-- Products -->
+    <section class="shop-page padding-top-100 padding-bottom-100">
+      <div class="container">
+        <div class="row">
+
+          <!-- Shop SideBar -->
+          <div class="col-sm-3">
+            <div class="shop-sidebar">
+
+              <!-- Category -->
+              <h5 class="shop-tittle margin-bottom-30">Objets</h5>
+              <ul class="shop-cate">
+                <li ><button  value=""  matInput (click)="selectChangeobjet($event)"> Tous </button></li>
+                <li *ngFor=" let o of listobjets" ><button  matInput (click)="selectChangeobjet($event)" value="{{o.name}}" >  {{o.name}} </button></li>
+              </ul>
+
+              <!-- FILTER BY PRICE -->
+              <h5 class="shop-tittle margin-top-60 margin-bottom-30">FILTRER PAR PRIX</h5>
+
+              <!-- TAGS -->
+              <h5 class="shop-tittle margin-top-60 margin-bottom-30">FILTRER PAR COULEUR</h5>
+              <ul class="colors">
+                <li><button value=""  matInput (click)="selectChangecouleur($event)"></button></li>
+                <li ><button style="background:black;" value="noir"  matInput (click)="selectChangecouleur($event)"> </button></li>
+                <li><button   value="gris" style="background:grey;" matInput (click)="selectChangecouleur($event)"></button></li>
+                <li><button  value="blanc" style="background:white;" matInput (click)="selectChangecouleur($event)"></button></li>
+                <li><button value="rouge" style="background:red;" matInput (click)="selectChangecouleur($event)"></button></li>
+                <li><button value="bleu" style="background:blue;" matInput (click)="selectChangecouleur($event)"></button></li>
+                <li><button value="beige" style="background:#c8ad7f;" matInput (click)="selectChangecouleur($event)"></button></li>
+                <li><button value="jaune" style="background:yellow;" matInput (click)="selectChangecouleur($event)"></button></li>
+                <li><button  value="camel" style="background: #bf8a3d ;" matInput (click)="selectChangecouleur($event)"></button></li>
+              </ul>
+
+              <!-- TAGS -->
+              <h5 class="shop-tittle margin-top-60 margin-bottom-30">TAGS</h5>
+              <ul class="shop-tags">
+                <li *ngFor=" let o of listobjets" ><a href="#.">{{o.name}}</a></li>
+
+              </ul>
+
+
+
+
+            </div>
+          </div>
+
+          <!-- Item Content -->
+          <div class="col-sm-9">
+            <div class="item-display">
+              <div class="row">
+                <div class="col-xs-6"> <span class="product-num"></span> </div>
+
+                <!-- Products Select -->
+                <div class="col-xs-6">
+                  <div class="pull-right">
+
+                    <!-- Short By -->
+                    <select class="selectpicker">
+                      <option>trier par</option>
+                      <option>Ordre croissant</option>
+                      <option>Ordre decroissant</option>
+                    </select>
+
+
+
+                    <!-- GRID & LIST -->
+                    <a href="#." class="grid-style"><i class="icon-grid"></i></a> <a href="#." class="list-style"><i class="icon-list"></i></a> </div>
+
+                </div>
+                <form class="form-inline md-form form-sm active-pink active-pink-2" style="margin-left: 20px">
+                  <input class="form-control form-control-sm ml-3 w-75" type="number" placeholder="Search" aria-label="Search" (keyup)="searchmaxprice($event)" placeholder="maxprix" [(ngModel)]="searchprice" name="searchinput">
+                </form>
+              </div>
+            </div>
+
+            <!-- Popular Item Slide -->
+            <div class="papular-block row single-img-demos">
+
+              <!-- Item -->
+              <div class="col-md-4" *ngFor="let p of listproduits |filtere: objet :couleur |paginate: { id: 'foo',
+                                                      itemsPerPage: 3,
+                                                      currentPage: page,
+                                                      totalItems: total };">
+                <div class="item" *ngIf=" p.prix<=searchprice || searchprice ==null">
+                  <!-- Item img -->
+                  <div class="item-img"> <img class="img-1" src="{{'http://localhost:8089/SpringMVC/servlet/getimageofproduct/'+p.id}}"  alt="" style="width: 300px;height: 350px;">
+                    <!-- Overlay -->
+                    <div class="overlay">
+                      <div class="position-center-center">
+                        <div class="inn"><a href="assets/images/product-2-1.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a   ><i class="icon-heart"></i></a></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Item Name -->
+                  <div class="item-name"> <a [routerLink]="['/detailproduit',p.id]">{{p.marque}}</a>
+                    <p>{{p.description}}</p>
+                  </div>
+                  <!-- Price -->
+                  <span class="price"><small></small> {{p.prix}} DT</span></div>
+              </div>
+
+
+
+
+            </div>
+            <pagination-controls  class="pagination" id="foo"  (pageChange)=" page = $event"  previousLabel="" nextLabel="" autoHide="true"></pagination-controls>
+            <!-- Pagination -->
+            <!--
+            <ul class="pagination">
+              <li class="active"><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+            </ul>
+            -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+
+
+
+  </div>
+
+
+
