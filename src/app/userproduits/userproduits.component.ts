@@ -5,6 +5,7 @@ import {Objets} from '../model/objets';
 import {ObjetsService} from '../shared/objets.service';
 import {Marque} from '../model/marque';
 import {MarqueService} from '../shared/marque.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-userproduits',
@@ -15,13 +16,19 @@ export class UserproduitsComponent implements OnInit {
   listproduits: Produit[];
   objets: Objets[];
   marques: Marque[];
+  total: number;
+  page: number ;
+  pagin: number;
   searchprice: number;
-  constructor(private serviceproduit: ProduitService , private objetsservice: ObjetsService, private marqueservice: MarqueService) { }
+  // tslint:disable-next-line:max-line-length
+  constructor( private toastr: ToastrService, private serviceproduit: ProduitService , private objetsservice: ObjetsService, private marqueservice: MarqueService) { }
 
   ngOnInit(): void {
+    this.page = 1;
     this.searchprice = null;
     this.serviceproduit.getproductsofuser(JSON.parse(localStorage.getItem('user')).id).subscribe(p =>
     { this.listproduits = p ;
+      this.total = p.length;
     });
     this.objetsservice.getobjets().subscribe( o =>
     {
@@ -42,7 +49,9 @@ export class UserproduitsComponent implements OnInit {
   {
     const index = this.listproduits.indexOf(p);
     this.serviceproduit.deleteProduct(id).subscribe( () =>
-      { this.listproduits.splice(index, 1);
+      {    this.toastr.success('Produit bien supprimé!', 'Suppression', {timeOut: 1000});
+           setTimeout(() => {    this.listproduits.splice(index, 1);
+        }, 1500);
       }
     );
   }

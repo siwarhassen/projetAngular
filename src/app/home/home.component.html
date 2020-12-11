@@ -154,7 +154,7 @@
 <div id="content">
 
   <!-- New Arrival -->
-  <section class="padding-top-100 padding-bottom-100">
+  <section class="padding-top-100 padding-bottom-100" style="height: 1900px">
     <div class="container">
 
       <!-- Main Heading -->
@@ -164,7 +164,7 @@
     </div>
 
     <!-- New Arrival -->
-    <div class="arrival-block" style="height: 500px">
+    <div class="arrival-block" style="height: 1000px">
 
       <!-- Item -->
       <div class="item" *ngFor="let p of produitsPardate" >
@@ -177,7 +177,7 @@
 
         </div>
         <!-- Item Name -->
-        <div class="item-name" > <a >{{p.marque}}</a>
+        <div class="item-name" > <a  [routerLink]="['/detailproduit',p.id]">{{p.marque}}</a>
           <p>{{p.etat}}</p>
         </div>
       </div>
@@ -185,7 +185,7 @@
 
     </div>
   </section>
-  <section >
+  <section style="margin-top: 100px">
     <div class="container">
 
       <!-- Main Heading -->

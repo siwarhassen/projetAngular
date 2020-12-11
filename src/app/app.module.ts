@@ -28,19 +28,22 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ShareButtonModule } from '@ngx-share/button';
 import {produitsFilterPipe} from './produits/produitsfiltrer.pipe';
+import {SearchprodfilterPipe} from './searchproducts/searchprodfilter.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { Ng5SliderModule } from 'ng5-slider';
 import { ToastrModule } from 'ngx-toastr';
 import { ProduitsselonobjetComponent } from './produitsselonobjet/produitsselonobjet.component';
 import { ModifieruserComponent } from './modifieruser/modifieruser.component';
 import { HighlightDirective } from './highlight.directive';
 import { ProduitsparmarqueComponent } from './produitsparmarque/produitsparmarque.component';
 import { FavorisComponent } from './favoris/favoris.component';
+import { SearchproductsComponent } from './searchproducts/searchproducts.component';
 @NgModule({
 
   declarations: [
     AppComponent,
     produitsFilterPipe,
+    SearchprodfilterPipe,
     HomeComponent,
     ProduitsComponent,
     DetailproduitComponent,
@@ -57,7 +60,8 @@ import { FavorisComponent } from './favoris/favoris.component';
     ModifieruserComponent,
     HighlightDirective,
     ProduitsparmarqueComponent,
-    FavorisComponent
+    FavorisComponent,
+    SearchproductsComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +73,7 @@ import { FavorisComponent } from './favoris/favoris.component';
     HttpClientModule,
     FontAwesomeModule,
     ShareIconsModule,
+    Ng5SliderModule,
     ShareButtonModule,
     ShareButtonsModule.withConfig({
       debug: true

@@ -15,6 +15,7 @@ import {ModifieruserComponent} from './modifieruser/modifieruser.component';
 import {ProduitsparmarqueComponent} from './produitsparmarque/produitsparmarque.component';
 import {Favoris} from './model/favoris';
 import {FavorisComponent} from './favoris/favoris.component';
+import {SearchproductsComponent} from './searchproducts/searchproducts.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path: 'produitsselonmarque/:marque', component: ProduitsparmarqueComponent},
   {path: 'modifieruser', component: ModifieruserComponent},
   {path: 'favoris', component: FavorisComponent},
+  {path: 'searchproduct/:critere', component: SearchproductsComponent},
   { path: '*', redirectTo: 'home' },
 ];
 

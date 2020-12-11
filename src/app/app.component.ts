@@ -9,6 +9,8 @@ import {Marque} from './model/marque';
 import {Panier} from './model/panier';
 import {PanierService} from './shared/panier.service';
 import {Produit} from './model/produit';
+import {ProduitService} from './shared/produit.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -23,9 +25,11 @@ export class AppComponent  implements OnInit, OnChanges{
   objets: Objets[];
   marques: Marque[];
   panier: Panier;
+  searchinput: any;
   produitsPanier: Produit[];
   constructor(private panierservice: PanierService, private serviceUser: UserService ,
-              private objetsService: ObjetsService, private marqueservice: MarqueService) {
+              private objetsService: ObjetsService, private marqueservice: MarqueService,
+              private serviceproduit: ProduitService,   private router: Router) {
   }
   ngOnInit(): void {
     console.log(JSON.parse(localStorage.getItem('user')).id);
@@ -52,6 +56,12 @@ ngOnChanges() {
  { localStorage.removeItem('user');
    window.location.reload();
  }
-
+  search()
+  {
+ this.serviceproduit.searchProduct(this.searchinput).subscribe(p =>
+ {
+   this.router.navigate(['searchproduct', this.searchinput]);
+ });
+  }
 
 }

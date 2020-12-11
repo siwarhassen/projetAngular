@@ -69,14 +69,14 @@
                 </li>
 
                 <!-- ADD TO CART -->
-                <li class="col-xs-6" *ngIf="verifp"> <button  class="btn" (click)="deletepanier()" appHighlight> supprimer panier</button> </li>
-                <li class="col-xs-6" *ngIf="(userconnecte!=userproduit.id) && (!verifp)"> <button (click)="ajoutproduitaupanier()" class="btn" appHighlight> panier</button> </li>
+                <li class="col-xs-6" *ngIf="(verifp) &&(userconnecte!=produit.user.id )"> <button  class="btn" (click)="deletepanier()" appHighlight> supprimer panier</button> </li>
+                <li class="col-xs-6" *ngIf="(userconnecte!=produit.user.id ) && (!verifp)"> <button (click)="ajoutproduitaupanier()" class="btn" appHighlight> panier</button> </li>
 
-                <li class="col-xs-6" *ngIf="userconnecte==userproduit.id  "> <button (click)="deleteproduit()" class="btn" appHighlight>supprimer </button> </li>
+                <li class="col-xs-6" *ngIf="userconnecte==produit.user.id "> <button (click)="deleteproduit()" class="btn" appHighlight>supprimer </button> </li>
                 <!-- LIKE -->
 
                 <li class="col-xs-6" *ngIf="verifFav"> <a (click)="deleteproduitfavoris()" class="like-us" aria-hidden="true" ><i  class="fa fa-heart"></i></a> </li>
-                <li class="col-xs-6" *ngIf="(userconnecte!=userproduit.id) && (!verifFav)"> <a (click)="ajoutproduitaufavoris()" class="like-us"><i class="icon-heart"></i></a> </li>
+                <li class="col-xs-6" *ngIf="(userconnecte!=produit.user.id ) && (!verifFav)"> <a (click)="ajoutproduitaufavoris()" class="like-us"><i class="icon-heart"></i></a> </li>
               </ul>
 
               <!-- INFOMATION -->
@@ -186,8 +186,16 @@
     </div>
   </section>
 
-<app-produitsimilaire  [produit]="produit" ></app-produitsimilaire>
+  <section class="light-gray-bg padding-top-150 padding-bottom-150">
+    <div class="container">
 
+      <!-- Main Heading -->
+      <div class="heading text-center">
+        <h4>{{totalnombreproduitsim}} produits similaires</h4>
+      </div>
+<app-produitsimilaire  [produit]="produit" (getnombre)="totalproduitsimilaire($event)"></app-produitsimilaire>
+    </div>
+  </section>
 
 
 </div>

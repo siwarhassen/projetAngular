@@ -53,7 +53,7 @@ export class ProduitService {
   }
   searchProduct(searchinput)
   {
-    return this.http.get<Produit[]>(this.url + '/?q=' + searchinput);
+    return this.http.get<Produit[]>(this.url + 'getallproductswithcriteria/' + searchinput);
   }
 
   getProductByCriteria(criteria: string, val: any, condition: string , val2: any) {

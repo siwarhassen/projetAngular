@@ -25,10 +25,10 @@ export class DetailproduitComponent implements OnInit {
   listcomment: Comment[];
   nbrecomment: number;
   userconnecte: number;
-  userproduit: User;
   usercomment: User;
   verifp: any;
   verifFav: any;
+  totalnombreproduitsim: number;
   // tslint:disable-next-line:max-line-length
   constructor(private serviceuuser: UserService, private servicecomment: CommentsService,
               private serviceproduit: ProduitService, private panierservice: PanierService,
@@ -42,8 +42,7 @@ export class DetailproduitComponent implements OnInit {
     this.serviceproduit.getdetailproduct(this.service.snapshot.params.id).subscribe(res => {
       this.produit = res;
       this.serviceuuser.getuser(res.user.id).subscribe( u =>
-        { this.userproduit = u;
-          this.panierservice.Verifierexistenceproduit(  this.userconnecte, res.id  ).subscribe( p =>
+        { this.panierservice.Verifierexistenceproduit(  this.userconnecte, res.id  ).subscribe( p =>
           { this.verifp = p;
             console.log(p);
           });
@@ -54,7 +53,7 @@ export class DetailproduitComponent implements OnInit {
         }
       );
       this.servicecomment.getcomments(res.id).subscribe(c => {
-        console.log(c[0].id);
+        console.log(c[0].content);
         this.listcomment = c;
         this.nbrecomment = c.length;
       });
@@ -133,5 +132,11 @@ export class DetailproduitComponent implements OnInit {
     {
       this.ngOnInit();
     });
+  }
+
+  totalproduitsimilaire(total: number)
+  {
+    this.totalnombreproduitsim = total;
+    console.log(total);
   }
 }

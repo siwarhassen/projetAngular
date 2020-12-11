@@ -23,7 +23,10 @@
           <div class="col-md-9" >
 
             <!-- Article -->
-            <article *ngFor="let p of listproduits" >
+            <article *ngFor="let p of listproduits|paginate: { id: 'foo',
+                                                      itemsPerPage: 2,
+                                                      currentPage: page,
+                                                      totalItems: total };" >
 <div  *ngIf="p.prix<=searchprice || searchprice ===null">
               <!-- Post Img -->
               <img class="img-responsive" src="{{'http://localhost:8089/SpringMVC/servlet/getimageofproduct/'+p.id}}" alt="" style="width: 1400px;height: 500px" >
@@ -45,7 +48,7 @@
                 <a  class="btn" style="margin-left: 50px" (click)="deleteproduit(p.id,p)" >supprimer</a></div>
 </div>
             </article>
-
+            <pagination-controls  class="pagination" id="foo"  (pageChange)=" page = $event"  previousLabel="" nextLabel="" autoHide="true"></pagination-controls>
 
 
 

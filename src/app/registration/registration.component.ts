@@ -37,7 +37,7 @@ export class RegistrationComponent implements OnInit {
     this.userForm =  new FormGroup({
       firstname: new FormControl('', [Validators.required, Validators.minLength(3)]),
       lastname: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      email: new FormControl('', [ Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
+      email: new FormControl('', [ Validators.required, ]),
       phone: new FormControl('', [Validators.required,  Validators.pattern('[0-9 ]{8}')]),
       adresse: new FormControl('', [Validators.required]),
       ville: new FormControl('', [Validators.required]),
@@ -118,7 +118,7 @@ export class RegistrationComponent implements OnInit {
     const formData = new FormData();
     formData.append('user',  JSON.stringify(user));
     formData.append('image', this.userImage);
-    this.userservice.registration(formData).subscribe( u =>
+    this.userservice.registration(formData).subscribe( ( u: User ) =>
     {
       localStorage.setItem('user', JSON.stringify(u));
       this.panier.user = u;

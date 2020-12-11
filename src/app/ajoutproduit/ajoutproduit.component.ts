@@ -7,6 +7,8 @@ import {Objets} from '../model/objets';
 import {MarqueService} from '../shared/marque.service';
 import {Marque} from '../model/marque';
 import {DatePipe} from '@angular/common';
+import {ToastrService} from 'ngx-toastr';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-ajoutproduit',
@@ -20,7 +22,7 @@ export class AjoutproduitComponent implements OnInit {
   produitImage: any = File;
   imagePreview: string;
   // tslint:disable-next-line:max-line-length
- constructor(private produitservice: ProduitService, private objetservice: ObjetsService, private marqueservice: MarqueService,  private datePipe: DatePipe) { }
+ constructor(   private router: Router, private toastr: ToastrService, private produitservice: ProduitService, private objetservice: ObjetsService, private marqueservice: MarqueService,  private datePipe: DatePipe) { }
 
   ngOnInit(): void {
     this.produit = new Produit();
@@ -60,7 +62,9 @@ export class AjoutproduitComponent implements OnInit {
      formData.append('image', this.produitImage);
      this.produitservice.addproduct(formData).subscribe( () =>
       {
-        console.log('hi') ;
+      this.toastr.success('Produit bien ajouté!', 'Ajout', {timeOut: 1000});
+      setTimeout(() => {  this.router.navigate(['produitdeuser']);
+        }, 1500);
       }
       // this.router.navigate(['users'])
     );

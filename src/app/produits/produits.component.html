@@ -59,7 +59,9 @@
 
               <!-- FILTER BY PRICE -->
               <h5 class="shop-tittle margin-top-60 margin-bottom-30">FILTRER PAR PRIX</h5>
-
+              <form class="form-inline md-form form-sm active-pink active-pink-2" style="margin-left: 20px">
+                <input class="form-control form-control-sm ml-3 w-75" type="number" placeholder="Search" aria-label="Search" (keyup)="searchmaxprice($event)" placeholder="maxprix" [(ngModel)]="searchprice" name="searchinput">
+              </form>
               <!-- TAGS -->
               <h5 class="shop-tittle margin-top-60 margin-bottom-30">FILTRER PAR COULEUR</h5>
               <ul class="colors">
@@ -110,9 +112,7 @@
                     <a href="#." class="grid-style"><i class="icon-grid"></i></a> <a href="#." class="list-style"><i class="icon-list"></i></a> </div>
 
                 </div>
-                <form class="form-inline md-form form-sm active-pink active-pink-2" style="margin-left: 20px">
-                  <input class="form-control form-control-sm ml-3 w-75" type="number" placeholder="Search" aria-label="Search" (keyup)="searchmaxprice($event)" placeholder="maxprix" [(ngModel)]="searchprice" name="searchinput">
-                </form>
+
               </div>
             </div>
 
@@ -121,7 +121,7 @@
 
               <!-- Item -->
               <div class="col-md-4" *ngFor="let p of listproduits |filtere: objet :couleur |paginate: { id: 'foo',
-                                                      itemsPerPage: 3,
+                                                      itemsPerPage: 4,
                                                       currentPage: page,
                                                       totalItems: total };">
                 <div class="item" *ngIf=" p.prix<=searchprice || searchprice ==null">
